@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator</title>
+	<style type="text/css">
+		*{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: sans-serif;
+          color: white;
+         }
+         body{
+         	height: 100vh;
+         	width: 100vw;
+         	background-color: #FF033E;
+         }
+		.calc{
+			display: flex;
+			flex-direction: column;
+			background-color: white;
+			max-height: 645px;
+			max-width: 375px;
+			margin: 20% auto;
+			border-radius: 10px;
+			padding: 20px;
+			box-shadow: 0px 0px 10px grey;
+			flex-wrap: wrap;
+		}
+
+		.output{
+			flex-basis: 191px;
+		}
+		input[type="text"]{
+			width: 100%;
+			height: 17vh;
+			margin: 10px auto;
+			border: none;
+			border-radius: 5px;
+			padding: 15px;
+			font-size: 38px;
+			color: blue;
+			text-align: right;
+
+
+		}
+
+		.keys{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+
+
+		input[type="button"]
+		{
+			width: 70px;
+			height: 70px;
+			background-color: #262933;
+			border: none;
+			border-radius: 5px;
+			margin: 4px;
+			font-weight: bold;
+			transition: 0.5s ease all;
+			font-size: 26px;
+			text-align: center;
+		}
+		input[type="button"]:hover{
+			transform: scale(0.9);
+		}
+		.operator{
+			color: #26FED7;
+		}
+		.ac{
+			color: crimson;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="calc">
+		    <form>
+			<div class="output">
+				<input type="text" name="op"  disabled id="ot" >
+			</div>
+			<div class="keys">
+		    <div>
+				<input type="button" value="AC" onclick="op.value=''" class="ac">
+				<input type="button" value="C" onclick="removeLastCharacter()" class="operator">
+				<input type="button" value="%" onclick="op.value+='%'" class="operator">
+			</div>
+			<div>
+				<input type="button" value="7" onclick="op.value+='7' ">
+				<input type="button" value="8" onclick="op.value+='8' ">
+				<input type="button" value="9" onclick="op.value+='9'">
+				<input type="button" value="+" onclick="op.value+='+'" class="operator">
+			</div>
+			<div>
+				<input type="button" value="4" onclick="op.value+='4'">
+				<input type="button" value="5" onclick="op.value+='5'">
+				<input type="button" value="6" onclick="op.value+='6'">
+				<input type="button" value="-" onclick="op.value+='-'" class="operator">
+			</div>
+			<div>
+				<input type="button" value="1" onclick="op.value+='1'">
+				<input type="button" value="2" onclick="op.value+='2'">
+				<input type="button" value="3" onclick="op.value+='3'">
+				<input type="button" value="x" onclick="op.value+='*'" class="operator">
+			</div>
+			<div>
+				<input type="button" value="." onclick="op.value+='.'">
+				<input type="button" value="0" onclick="op.value+='0'">
+				<input type="button" value="=" onclick="op.value=eval(op.value)" class="operator">
+				<input type="button" value="/" onclick="op.value+='/'" class="operator">
+			</div>
+			</div>
+			</form>
+		
+	</div>
+	<script type="text/javascript">
+		function removeLastCharacter() {
+    let inputField = document.getElementById('ot'); // Replace 'calculatorInput' with the ID of your input field
+
+    let inputValue = inputField.value;
+
+    if (inputValue.length > 0) {
+        // Remove the last character using slice
+        let newValue = inputValue.slice(0, -1);
+        inputField.value = newValue;
+    }
+}
+      
+	</script>
+
+</body>
+</html>
